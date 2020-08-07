@@ -1,0 +1,39 @@
+{% extends "layout.html" %} 
+
+{% block yusuf %}
+
+<hr>
+<h3>Makaleler</h3>
+<hr>
+
+{% if articles %}
+<form action="/search" method="POST">
+<input type="text" name = "keyword" class=" input-sm" maxlength="64" placeholder="Arama">
+<button type="submit" class="btn btn-danger btn">Ara</button>
+</form>
+<hr>
+
+    {% for article in articles %}
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{article.title}}</h5>
+            <hr>
+            <small>{{article.created_date}}</small>
+          </div>
+          <h6>Konu : {{article.content}}</h6>
+          
+          <hr>
+          <a href="article/{{article.id}}">Makaleyi Görüntülemek için dokunun</a>
+          <hr>
+        </a>
+    {% endfor %}
+  </ul>
+
+{%else %}
+<div class ="alert alert-danger">Makale Bulunamadı</div>
+
+{% endif %}
+
+
+{% endblock yusuf %}

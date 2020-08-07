@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block yusuf %}
+
+
+
+
+{% from "formhelpers.html" import render_field %}
+<div class= "text-center",clas = "form-control"></div>
+<form method=post >
+  <dl>
+    <br><br><br><br><br><br>
+    {{ render_field(form.username) }}
+    {{ render_field(form.password) }}
+  </dl>
+  <p><input type=submit value=Register>
+</form>
+
+
+
+{% endblock yusuf %} 
